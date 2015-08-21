@@ -82,15 +82,15 @@ Route::post('admin/principle/{id}/update', ['as' => 'admin.principle.update', 'u
 Route::get('admin/principle/{id}/destroy', ['as' => 'admin.principle.destroy', 'uses' => 'PrincipleController@destroy']);
 
 
+// Admin: Stage
+Route::resource('admin/stage', 'StageController', ['only' => ['index', 'create', 'edit']]);
+Route::post('admin/stage/store', ['as' => 'admin.stage.store', 'uses' => 'StageController@store']);
+Route::post('admin/stage/{stage}/update', ['as' => 'admin.stage.update', 'uses' => 'StageController@update']);
+Route::get('admin/stage/{stage}/destroy', ['as' => 'admin.stage.destroy', 'uses' => 'StageController@destroy']);
+
 
 
 // TODO Update these
-
-Route::get(
-    '/', ['as' => 'admin.stage.index', function () {
-        return view('about');
-    }]
-);
 Route::get(
     '/', ['as' => 'admin.drill.index', function () {
         return view('about');
@@ -121,10 +121,6 @@ Route::get(
 
 
 
-// Route::resource('admin/stage', 'StageController', ['only' => ['index', 'create', 'edit']]);
-// Route::post('admin/stage/store', ['as' => 'admin.stage.store', 'uses' => 'StageController@store']);
-// Route::post('admin/stage/{stage}/update', ['as' => 'admin.stage.update', 'uses' => 'StageController@update']);
-// Route::get('admin/stage/{stage}/destroy', ['as' => 'admin.stage.destroy', 'uses' => 'StageController@destroy']);
 // Route::resource('admin/drill', 'DrillController', ['only' => ['index', 'create', 'edit']]);
 // Route::post('admin/drill/store', ['as' => 'admin.drill.store', 'uses' => 'DrillController@store']);
 // Route::post('admin/drill/{drill}/update', ['as' => 'admin.drill.update', 'uses' => 'DrillController@update']);
