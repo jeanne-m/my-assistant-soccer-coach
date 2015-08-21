@@ -12,5 +12,18 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.less('app.less');
+});
+
+elixir(function(mix) {
+    mix.scripts(
+        [
+            'vendor/jquery-2.1.4.js',
+            'vendor/bootstrap-3.3.5.js',
+            'ConfirmModal.js',
+            'DeleteProfile.js',
+            'Slug.js'
+        ],
+        'public/js/core.js'
+    );
 });

@@ -1,27 +1,37 @@
+## My Assistant Soccer Coach
+
+My Assistant Soccer Coach is a web application built on Laravel. It automatically generates a practice plan that aligns with the age group and principle of play of your choice, all in just three clicks.
+
 ## Laravel PHP Framework
-
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
-
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
 
 Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-## Contributing
+## Requirements
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+* Apache Web Server
+* PHP version 5.6 or above
+* MySQL
 
-## Security Vulnerabilities
+## Installation
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+1. Deploy the project code on your web server
+
+   ```
+   git clone https://github.com/anthemred/my-assistant-soccer-coach myasc
+   ```
+
+2. Install `composer` if necessary
+3. Run `composer update` in the root of your project 
+   
+   Note: If you are running on a shared server, you may need to use `composer install` instead
+
+4. Create a `.env` file based on the `.env.example` file in the root of your project
+5. If you are running a development environment, set `APP_ENV` to `local` and `APP_DEBUG` to `true`
+6. Run `php artisan key:generate`
+7. You can create your own database tables or run `php artisan migrate`
+8. To see what data should look like in the database run `php artisan db:seed`
+9. Point your web server to serve from the public directory `(myasc/public)`
 
 ### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+My Assistant Soccer Coach is open-sourced software licensed under the [GNU Public License](http://opensource.org/licenses/gpl-license.php)
