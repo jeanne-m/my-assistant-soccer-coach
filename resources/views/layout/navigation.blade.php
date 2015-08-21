@@ -16,7 +16,7 @@
                 <li {{ $currentRoute === 'contact' ? 'class=active' : '' }}><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
+                @if (auth()->guest())
                     @if ($currentRoute === 'auth.login')
                         <li><a href="{{ route('auth.register') }}">Register</a></li>
                     @else
@@ -24,11 +24,11 @@
                     @endif
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hello, {{ Auth::user()->name }} <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hello, {{ auth()->user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ route('profile.show') }}">My Profile</a></li>
                             <li role="separator" class="divider"></li>
-                            @if (Auth::user()->admin)
+                            @if (auth()->user()->admin)
                                 <li><a href="{{ route('admin.age-group.index') }}">Manage Age Groups</a></li>
                                 <li><a href="{{ route('admin.focus.index') }}">Manage Foci</a></li>
                                 <li><a href="{{ route('admin.principle.index') }}">Manage Principles</a></li>

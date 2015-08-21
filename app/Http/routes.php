@@ -14,7 +14,7 @@
 // Home page
 Route::get(
     '/', function () {
-        return Redirect::route('home');
+        return redirect()->route('home');
     }
 );
 Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index']);
@@ -25,17 +25,17 @@ Route::get('home/{ageGroup}', ['as' => 'home.focus', 'uses' => 'HomeController@f
 
 // About page
 Route::get(
-    'about', array('as' => 'about', function () {
+    'about', ['as' => 'about', function () {
         return view('about');
-    })
+    }]
 );
 
 
 // Contact page
 Route::get(
-    'contact', array('as' => 'contact', function () {
+    'contact', ['as' => 'contact', function () {
         return view('contact');
-    })
+    }]
 );
 
 
@@ -54,56 +54,67 @@ Route::controller(
 );
 
 
+// Profile page
+Route::get('profile', ['as' => 'profile.show', 'uses' => 'ProfileController@show']);
+Route::get('profile/edit', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+Route::post('profile/update', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+Route::get('profile/destroy', ['as' => 'profile.destroy', 'uses' => 'ProfileController@destroy']);
+
+
+// Admin: Age groups
+Route::resource('admin/age-group', 'AgeGroupController', ['only' => ['index', 'create', 'edit']]);
+Route::post('admin/age-group/store', ['as' => 'admin.age-group.store', 'uses' => 'AgeGroupController@store']);
+Route::post('admin/age-group/{id}/update', ['as' => 'admin.age-group.update', 'uses' => 'AgeGroupController@update']);
+Route::get('admin/age-group/{id}/destroy', ['as' => 'admin.age-group.destroy', 'uses' => 'AgeGroupController@destroy']);
 
 
 
 
-// // About page
-// Route::get(
-//     'about', array('as' => 'about', function () {
-//         return view('about');
-//     })
-// );
+// TODO Update these
 
-// // Contact page
-// Route::get(
-//     'contact', array('as' => 'contact', function () {
-//         return view('contact');
-//     })
-// );
+Route::get(
+    '/', ['as' => 'admin.focus.index', function () {
+        return view('about');
+    }]
+);
+Route::get(
+    '/', ['as' => 'admin.principle.index', function () {
+        return view('about');
+    }]
+);
+Route::get(
+    '/', ['as' => 'admin.stage.index', function () {
+        return view('about');
+    }]
+);
+Route::get(
+    '/', ['as' => 'admin.drill.index', function () {
+        return view('about');
+    }]
+);
+Route::get(
+    '/', ['as' => 'admin.user.index', function () {
+        return view('about');
+    }]
+);
 
-// // Profile page
-// Route::get(
-//     'profile', [
-//         'as' => 'profile.show',
-//         'uses' => 'UserController@show'
-//     ]
-// );
-// Route::get(
-//     'profile/edit', [
-//         'as' => 'profile.edit',
-//         'uses' => 'UserController@edit'
-//     ]
-// );
-// Route::post(
-//     'profile/update', [
-//         'as' => 'profile.update',
-//         'uses' => 'UserController@update'
-//     ]
-// );
-// Route::get(
-//     'profile/delete', [
-//         'as' => 'profile.delete',
-//         'uses' => 'UserController@destroy'
-//     ]
-// );
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // // Administration
-// Route::resource('admin/age-group', 'AgeGroupController', ['only' => ['index', 'create', 'edit']]);
-// Route::post('admin/age-group/store', ['as' => 'admin.age-group.store', 'uses' => 'AgeGroupController@store']);
-// Route::post('admin/age-group/{age_group}/update', ['as' => 'admin.age-group.update', 'uses' => 'AgeGroupController@update']);
-// Route::get('admin/age-group/{age_group}/destroy', ['as' => 'admin.age-group.destroy', 'uses' => 'AgeGroupController@destroy']);
+
 // Route::resource('admin/focus', 'FocusController', ['only' => ['index', 'create', 'edit']]);
 // Route::post('admin/focus/store', ['as' => 'admin.focus.store', 'uses' => 'FocusController@store']);
 // Route::post('admin/focus/{focus}/update', ['as' => 'admin.focus.update', 'uses' => 'FocusController@update']);
