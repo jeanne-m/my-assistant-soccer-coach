@@ -68,20 +68,24 @@ Route::post('admin/age-group/{id}/update', ['as' => 'admin.age-group.update', 'u
 Route::get('admin/age-group/{id}/destroy', ['as' => 'admin.age-group.destroy', 'uses' => 'AgeGroupController@destroy']);
 
 
+// Admin: Foci
+Route::resource('admin/focus', 'FocusController', ['only' => ['index', 'create', 'edit']]);
+Route::post('admin/focus/store', ['as' => 'admin.focus.store', 'uses' => 'FocusController@store']);
+Route::post('admin/focus/{id}/update', ['as' => 'admin.focus.update', 'uses' => 'FocusController@update']);
+Route::get('admin/focus/{id}/destroy', ['as' => 'admin.focus.destroy', 'uses' => 'FocusController@destroy']);
+
+
+// Admin: Principles
+Route::resource('admin/principle', 'PrincipleController', ['only' => ['index', 'create', 'edit']]);
+Route::post('admin/principle/store', ['as' => 'admin.principle.store', 'uses' => 'PrincipleController@store']);
+Route::post('admin/principle/{id}/update', ['as' => 'admin.principle.update', 'uses' => 'PrincipleController@update']);
+Route::get('admin/principle/{id}/destroy', ['as' => 'admin.principle.destroy', 'uses' => 'PrincipleController@destroy']);
+
+
 
 
 // TODO Update these
 
-Route::get(
-    '/', ['as' => 'admin.focus.index', function () {
-        return view('about');
-    }]
-);
-Route::get(
-    '/', ['as' => 'admin.principle.index', function () {
-        return view('about');
-    }]
-);
 Route::get(
     '/', ['as' => 'admin.stage.index', function () {
         return view('about');
@@ -115,14 +119,8 @@ Route::get(
 
 // // Administration
 
-// Route::resource('admin/focus', 'FocusController', ['only' => ['index', 'create', 'edit']]);
-// Route::post('admin/focus/store', ['as' => 'admin.focus.store', 'uses' => 'FocusController@store']);
-// Route::post('admin/focus/{focus}/update', ['as' => 'admin.focus.update', 'uses' => 'FocusController@update']);
-// Route::get('admin/focus/{focus}/destroy', ['as' => 'admin.focus.destroy', 'uses' => 'FocusController@destroy']);
-// Route::resource('admin/principle', 'PrincipleController', ['only' => ['index', 'create', 'edit']]);
-// Route::post('admin/principle/store', ['as' => 'admin.principle.store', 'uses' => 'PrincipleController@store']);
-// Route::post('admin/principle/{principle}/update', ['as' => 'admin.principle.update', 'uses' => 'PrincipleController@update']);
-// Route::get('admin/principle/{principle}/destroy', ['as' => 'admin.principle.destroy', 'uses' => 'PrincipleController@destroy']);
+
+
 // Route::resource('admin/stage', 'StageController', ['only' => ['index', 'create', 'edit']]);
 // Route::post('admin/stage/store', ['as' => 'admin.stage.store', 'uses' => 'StageController@store']);
 // Route::post('admin/stage/{stage}/update', ['as' => 'admin.stage.update', 'uses' => 'StageController@update']);
