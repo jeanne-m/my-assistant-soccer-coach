@@ -98,12 +98,12 @@ class HomeController extends Controller
             $drill = Drill::where('stage_id', $stage->id)->get()->random();
 
             // Filter out age groups
-            if (!in_array($ageGroupModel->get()->first()->id, json_decode($drill->age_id))) {
+            if (!in_array($ageGroupModel->get()->first()->id, $drill->age_id)) {
                 continue;
             }
 
             // Filter out principles
-            if (!in_array($principleModel->get()->first()->id, json_decode($drill->principle_id))) {
+            if (!in_array($principleModel->get()->first()->id, $drill->principle_id)) {
                 continue;
             }
             $drill->stage = $stage->name;
