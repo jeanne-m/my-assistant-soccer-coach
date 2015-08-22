@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FocusTableSeeder::class);
         $this->call(PrincipleTableSeeder::class);
         $this->call(StageTableSeeder::class);
+        $this->call(DrillTableSeeder::class);
 
         Model::reguard();
     }

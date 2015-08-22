@@ -82,50 +82,22 @@ Route::post('admin/principle/{id}/update', ['as' => 'admin.principle.update', 'u
 Route::get('admin/principle/{id}/destroy', ['as' => 'admin.principle.destroy', 'uses' => 'PrincipleController@destroy']);
 
 
-// Admin: Stage
+// Admin: Stages
 Route::resource('admin/stage', 'StageController', ['only' => ['index', 'create', 'edit']]);
 Route::post('admin/stage/store', ['as' => 'admin.stage.store', 'uses' => 'StageController@store']);
-Route::post('admin/stage/{stage}/update', ['as' => 'admin.stage.update', 'uses' => 'StageController@update']);
-Route::get('admin/stage/{stage}/destroy', ['as' => 'admin.stage.destroy', 'uses' => 'StageController@destroy']);
+Route::post('admin/stage/{id}/update', ['as' => 'admin.stage.update', 'uses' => 'StageController@update']);
+Route::get('admin/stage/{id}/destroy', ['as' => 'admin.stage.destroy', 'uses' => 'StageController@destroy']);
 
 
-
-// TODO Update these
-Route::get(
-    '/', ['as' => 'admin.drill.index', function () {
-        return view('about');
-    }]
-);
-Route::get(
-    '/', ['as' => 'admin.user.index', function () {
-        return view('about');
-    }]
-);
+// Admin: Drills
+Route::resource('admin/drill', 'DrillController', ['only' => ['index', 'create', 'edit']]);
+Route::post('admin/drill/store', ['as' => 'admin.drill.store', 'uses' => 'DrillController@store']);
+Route::post('admin/drill/{id}/update', ['as' => 'admin.drill.update', 'uses' => 'DrillController@update']);
+Route::get('admin/drill/{id}/destroy', ['as' => 'admin.drill.destroy', 'uses' => 'DrillController@destroy']);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Administration
-
-
-
-// Route::resource('admin/drill', 'DrillController', ['only' => ['index', 'create', 'edit']]);
-// Route::post('admin/drill/store', ['as' => 'admin.drill.store', 'uses' => 'DrillController@store']);
-// Route::post('admin/drill/{drill}/update', ['as' => 'admin.drill.update', 'uses' => 'DrillController@update']);
-// Route::get('admin/drill/{drill}/destroy', ['as' => 'admin.drill.destroy', 'uses' => 'DrillController@destroy']);
-// Route::resource('admin/user', 'UserController', ['only' => ['index']]);
-// Route::get('admin/user/{user}/destroy', ['as' => 'admin.user.destroy', 'uses' => 'UserController@destroy']);
-// Route::get('admin/user/{user}/grant', ['as' => 'admin.user.grant', 'uses' => 'UserController@grant']);
-// Route::get('admin/user/{user}/revoke', ['as' => 'admin.user.revoke', 'uses' => 'UserController@revoke']);
+// Admin: Users
+Route::resource('admin/user', 'UserController', ['only' => ['index']]);
+Route::get('admin/user/{id}/destroy', ['as' => 'admin.user.destroy', 'uses' => 'UserController@destroy']);
+Route::get('admin/user/{id}/grant', ['as' => 'admin.user.grant', 'uses' => 'UserController@grant']);
+Route::get('admin/user/{id}/revoke', ['as' => 'admin.user.revoke', 'uses' => 'UserController@revoke']);
