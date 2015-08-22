@@ -18,8 +18,8 @@ class CreateDrillsTable extends Migration
                 $table->string('name');
                 $table->string('slug');
                 $table->integer('stage_id');
-                $table->array('age_id');
-                $table->array('principle_id');
+                $table->json('age_id');
+                $table->json('principle_id');
                 $table->string('image');
                 $table->timestamps();
             }
