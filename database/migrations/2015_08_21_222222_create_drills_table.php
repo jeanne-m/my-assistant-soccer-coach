@@ -13,7 +13,7 @@ class CreateDrillsTable extends Migration
     public function up()
     {
         Schema::create(
-            'stages', function (Blueprint $table) {
+            'drills', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name');
                 $table->string('slug');
@@ -33,6 +33,6 @@ class CreateDrillsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('stages');
+        Schema::drop('drills');
     }
 }
