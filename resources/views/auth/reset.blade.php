@@ -1,4 +1,6 @@
-@extends('app')
+@extends('layout.app')
+
+@section('title', 'Reset Password')
 
 @section('content')
 <div class="container-fluid">

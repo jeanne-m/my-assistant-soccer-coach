@@ -32,11 +32,8 @@ Route::get(
 
 
 // Contact page
-Route::get(
-    'contact', ['as' => 'contact', function () {
-        return view('contact');
-    }]
-);
+Route::get('contact', ['as' => 'contact', 'uses' => 'ContactController@index']);
+Route::post('contact', ['as' => 'contact', 'uses' => 'ContactController@send']);
 
 
 // Authentication
