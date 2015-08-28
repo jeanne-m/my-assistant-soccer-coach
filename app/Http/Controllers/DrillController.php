@@ -19,7 +19,7 @@ class DrillController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        if (auth()->user()->admin) {
+        if (!auth()->user() || !auth()->user()->admin) {
             return redirect()->route('home');
         }
     }
@@ -70,6 +70,8 @@ class DrillController extends Controller
         $drill->name = $request->input('name');
         $drill->slug = $request->input('slug');
         $drill->stage_id = $request->input('stage_id');
+        $drill->notes = $request->input('notes');
+        $drill->coaching_points = $request->input('coaching_points');
         $drill->age_id = $request->input('age_id');
         $drill->principle_id = $request->input('principle_id');
         $drill->save();
@@ -120,6 +122,8 @@ class DrillController extends Controller
         $drill->name = $request->input('name');
         $drill->slug = $request->input('slug');
         $drill->stage_id = $request->input('stage_id');
+        $drill->notes = $request->input('notes');
+        $drill->coaching_points = $request->input('coaching_points');
         $drill->age_id = $request->input('age_id');
         $drill->principle_id = $request->input('principle_id');
         $drill->save();

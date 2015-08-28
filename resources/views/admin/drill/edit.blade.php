@@ -38,6 +38,18 @@
             @endif
         </div>
     </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label">Equipment / Grid Size</label>
+        <div class="col-md-6">
+            <textarea class="form-control" name="notes">{{ old('notes') ? old('notes') : $drill->notes }}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label">Coaching Points</label>
+        <div class="col-md-6">
+            <textarea class="form-control" name="coaching_points">{{ old('coaching_points') ? old('coaching_points') : $drill->coaching_points }}</textarea>
+        </div>
+    </div>
     <div class="form-group {{ $errors->first('age_id') ? 'has-error' : '' }}">
         <label class="col-md-4 control-label">Age Groups</label>
         <div class="col-md-6">

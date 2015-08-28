@@ -6962,7 +6962,7 @@ a.list-group-item-danger.active:focus {
   color: #2c3e50;
 }
 body {
-  padding-top: 80px;
+  padding: 80px 0;
 }
 .button-set {
   text-align: center;

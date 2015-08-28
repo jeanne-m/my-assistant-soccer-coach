@@ -16,7 +16,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        if (auth()->user()->admin) {
+        if (!auth()->user() || !auth()->user()->admin) {
             return redirect()->route('home');
         }
     }

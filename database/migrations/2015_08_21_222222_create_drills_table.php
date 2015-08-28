@@ -17,6 +17,8 @@ class CreateDrillsTable extends Migration
                 $table->increments('id');
                 $table->string('name');
                 $table->string('slug');
+                $table->text('notes');
+                $table->text('coaching_points');
                 $table->integer('stage_id');
                 $table->json('age_id');
                 $table->json('principle_id');

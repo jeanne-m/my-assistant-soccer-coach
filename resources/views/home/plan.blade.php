@@ -10,9 +10,31 @@
     @foreach ($drills as $drill)
     <div class="col-md-6">
         <div class="well well-lg">
-            <h2>{{ $drill->stage }}</h2>
+            <h2>{{ $drill->stage['name'] }}</h2>
             <h3>{{ $drill->name }}</h3>
-            <img class="img-responsive" src="{{ asset($drill->image) }}" alt="{{ $drill->name }}">
+            <div class="drill-image">
+                <img class="img-responsive" src="{{ asset($drill->image) }}" alt="{{ $drill->name }}">
+            </div>
+            @if ($drill->notes || $drill->coaching_points)
+                <div class="row">
+                    @if ($drill->notes)
+                        <div class="col-xs-6">
+                            <h5>Equipment / Grid Size</h5>
+                            <div class="drill-notes">
+                                {!! $drill->notes !!}
+                            </div>
+                        </div>
+                    @endif
+                    @if ($drill->coaching_points)
+                        <div class="col-xs-6">
+                            <h5>Coaching Points</h5>
+                            <div class="drill-notes">
+                                {!! $drill->coaching_points !!}
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            @endif
         </div>
     </div>
     @endforeach

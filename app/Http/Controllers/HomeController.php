@@ -106,7 +106,9 @@ class HomeController extends Controller
             if (!in_array($principleModel->get()->first()->id, $drill->principle_id)) {
                 continue;
             }
-            $drill->stage = $stage->name;
+
+            $drill->notes = str_replace("\n", '<br>', $drill->notes);
+            $drill->coaching_points = str_replace("\n", '<br>', $drill->coaching_points);
             $drills[] = $drill;
         }
 
