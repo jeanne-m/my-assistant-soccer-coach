@@ -80,8 +80,9 @@ class HomeController extends Controller
      *
      * @return Response
      */
-    public function plan($ageGroup, $focus, $principle)
+    public function plan($ageGroup, $focus, $principle, Request $request)
     {
+        $savedDrills = $request->input('saved_drills') ? $request->input('saved_drills') : array();
         $ageGroupModel = AgeGroup::where('slug', $ageGroup);
         if ($ageGroupModel->count() < 1) {
             return redirect()->route('home');
@@ -95,7 +96,14 @@ class HomeController extends Controller
         }
         $drills = array();
         foreach (Stage::all() as $stage) {
-            $drill = Drill::where('stage_id', $stage->id)->get()->random();
+            $drill = null;
+            if (array_key_exists($stage->id, $savedDrills)) {
+                $drill = Drill::where('id', $savedDrills[$stage->id])->first();
+                $drill->saved = true;
+            }
+            if (!$drill) {
+                $drill = Drill::where('stage_id', $stage->id)->get()->random();
+            }
 
             // Filter out age groups
             if (!in_array($ageGroupModel->get()->first()->id, $drill->age_id)) {

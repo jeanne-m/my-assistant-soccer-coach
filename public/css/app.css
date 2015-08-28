@@ -6976,5 +6976,10 @@ body {
 input[type=file] {
   line-height: 42px;
 }
+.drill-save {
+  position: absolute;
+  top: 1em;
+  right: 2em;
+}
 
 /*# sourceMappingURL=app.css.map */

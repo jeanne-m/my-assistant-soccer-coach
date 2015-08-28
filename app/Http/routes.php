@@ -19,6 +19,7 @@ Route::get(
 );
 Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('home/{ageGroup}/{focus}/{principle}', ['as' => 'home.plan', 'uses' => 'HomeController@plan']);
+Route::post('home/{ageGroup}/{focus}/{principle}', ['as' => 'home.plan', 'uses' => 'HomeController@plan']);
 Route::get('home/{ageGroup}/{focus}/', ['as' => 'home.principle', 'uses' => 'HomeController@principle']);
 Route::get('home/{ageGroup}', ['as' => 'home.focus', 'uses' => 'HomeController@focus']);
 
